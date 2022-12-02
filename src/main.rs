@@ -10,12 +10,12 @@ fn main() {
     let mut max = 0;
     for line in reader.lines() {
         let line = line.unwrap();
-        match line.as_str() {
+        match &line[..] {
             "" => {
                 if current > max {
                     max = current;
                 }
-                
+
                 current = 0;
             },
             _ => {
