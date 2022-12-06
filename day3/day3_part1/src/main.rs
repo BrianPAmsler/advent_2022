@@ -29,8 +29,6 @@ fn get_shared_type(a: &str, b: &str) -> Option<char> {
 }
 
 fn main() {
-    println!("{}, {}", get_score('p'), get_score('L'));
-
     let sacks: Vec<String> = {
         let f = File::open("sacks.txt").unwrap();
         let buf = BufReader::new(f);
