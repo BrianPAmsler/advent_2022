@@ -1,10 +1,14 @@
 use std::{fs::File, io::{BufReader, BufRead}};
 
 fn test_ranges(a: (i32, i32), b: (i32, i32)) -> bool {
-    let l_change = b.0 < a.0;
-    let r_change = b.1 > a.1;
+    let (a, b) = if a.0 < b.0 {
+        (a, b)
+    } else {
+        (b, a)
+    };
 
-    a.0 == b.0 || a.1 == b.1 || !(l_change ^ r_change)
+
+    a.1 >= b.0
 }
 
 fn parse_range(range: &str) -> (i32, i32) {
